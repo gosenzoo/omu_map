@@ -1,0 +1,151 @@
+#main-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 0 8px gray;
+}
+#content-wrapper {
+  padding: 0% 5% 5% 5%;
+}
+body {
+  background-color: rgb(207, 207, 207);
+}
+
+.fudaiMap-container {
+  border-top: 3px solid rgb(243, 203, 45);
+  position: relative;
+  text-align: center;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  margin: 0;
+}
+
+.fudaimap-image {
+  width: 100%;
+  height: 100%;
+}
+
+.ichidaiMap-container {
+  border-top: 3px solid rgb(243, 203, 45);
+  position: relative;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
+.ichidaimap-image {
+  width: 80%;
+  height: auto;
+}
+
+.pin-wrapper {
+  position: absolute;
+}
+.pin-image {
+  width: 20px;
+  height: auto;
+  float: left;
+}
+.pin-name {
+  cursor: default;
+  width: 150px;
+
+  line-height: 100%;
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  -webkit-text-stroke: 0.3px white;
+}
+
+/* モーダルウィンドウのスタイル */
+.modal {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10vh auto auto auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+  border-top: 3px solid rgb(243, 203, 45);
+}
+
+.modal-image {
+  width: 80%; /* または必要に応じて調整 */
+  margin: 20px 0;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content ul {
+  text-align: left;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab-item {
+  float: left;
+  background-color: rgb(205, 209, 208);
+  cursor: default;
+
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  width: 200px;
+  height: 60px;
+  max-width: calc(100% / 2);
+}
+.tab-item.active {
+  background-color: rgb(243, 203, 45);
+}
+.tab-list {
+  height: 60px;
+}
+#map-wrapper {
+  margin:0 auto;
+}
+
+.title-container {
+  border-bottom: 3px solid rgb(243, 203, 45);
+}
+.title {
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0 auto auto;
+  text-align: center;
+}
+
+.sakai-weater-container {
+  background: linear-gradient(rgb(205, 209, 208), rgba(0, 0, 0, 0));
+  border-bottom: 3px solid rgb(243, 203, 45);
+  margin-bottom: 20px;
+  height: 155.1px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 100%;
+}

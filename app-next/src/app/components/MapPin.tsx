@@ -30,7 +30,31 @@ const MapPin:React.FC<mapPinProps> = (props) => {
     setModalOpen(false);
   };
 
-  console.log(detail.imageName)
+  const [commentText, setCommentText] = useState("")
+  const handleSubmit = async(e:any) => {
+    e.preventDefault()
+    try {
+      const responce = await fetch("http://localhost:3000/api/item/pushcomment", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          pinId: props.detailId,
+          comment: commentText
+        })
+      })
+
+      alert(`送信完了\nコメント：${commentText}`)
+
+      setCommentText("")
+    }catch(err){
+      alert("送信エラー")
+      alert(err)
+    }
+  }
+
   return (
     <div key={props.detailId} className="pin-wrapper" style={props.style}>
       <img src="/pin_image.png" alt="PinImage" className='pin-image' onClick={showModal}/>
@@ -51,6 +75,10 @@ const MapPin:React.FC<mapPinProps> = (props) => {
                 ))}
               </ul>
             )}
+            <form onSubmit={handleSubmit}>
+              <input type="textarea" placeholder="コメントを入力" value={commentText} onChange={(e) => setCommentText(e.target.value)} required/>
+              <button>投稿</button>
+            </form>
           </div>
         </div>
       )}

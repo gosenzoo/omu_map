@@ -3,9 +3,11 @@ version: '3'
 services:
   # Node.js
   node:
-    build: ./app-next
     container_name: node
     tty: true
+    build: 
+      context: .
+      dockerfile: ./app-next/Dockerfile
     ports:
       - 3000:3000
     # プロジェクトディレクトリにマウントする

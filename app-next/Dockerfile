@@ -2,6 +2,7 @@ FROM node:latest
 
 # 作業ディレクトリ
 WORKDIR /var/www
+COPY .env ../
 
 # ロケールのインストールと設定
 RUN apt-get update
@@ -16,5 +17,6 @@ ENV TERM xterm
 # Vimインストール
 RUN apt install -y vim
 
-# create-next-appをインストール
-RUN npm install -g npm@latest && npm install create-next-app 
+# パッケージをインストール
+RUN npm install -g npm@latest
+RUN npm install promise-mysql dotenv

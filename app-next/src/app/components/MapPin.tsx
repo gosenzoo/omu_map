@@ -30,6 +30,32 @@ const MapPin:React.FC<mapPinProps> = (props) => {
     setModalOpen(false);
   };
 
+  let commentsData:any[] = []
+  const getComments = async () => {
+    try {
+      const response: any = await fetch(`http://localhost:3000/api/item/getcomment/${props.detailId}`, {
+        method: "GET",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        }
+      })
+      .then((res) => {
+        return res.json()
+      })
+      .then((data) => {
+        console.log(data.result)
+        commentsData = data.result
+      })
+
+      return response
+    }catch(err){
+      alert("コメント取得エラー")
+      alert(err)
+    }
+  }
+  getComments()
+
   const [commentText, setCommentText] = useState("")
   const handleSubmit = async(e:any) => {
     e.preventDefault()
@@ -68,10 +94,10 @@ const MapPin:React.FC<mapPinProps> = (props) => {
             { detail.imageName && 
               <img src={`/${detail.imageName}`} alt="Modal" className="modal-image" />
             }
-            {detail.explain && (
+            {commentsData && (
               <ul>
-                {detail.explain.map((text, i) => (
-                    <li key={i}> {text} </li>
+                {commentsData.map((data: any, i) => (
+                    <li key={i}> {data.comment} </li>
                 ))}
               </ul>
             )}
